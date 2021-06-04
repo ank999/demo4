@@ -1,0 +1,22 @@
+pipeline{
+    agent {
+        label 'agentx'
+    } 
+    stages{
+        stage('checkout'){
+            steps{
+		checkout scm
+            }
+        }
+        stage('build'){
+            steps{
+                echo "build this step"
+            }
+        }
+        stage('post build'){
+            steps{
+               sh "sh demo.sh"
+            }
+        }
+    }
+}
